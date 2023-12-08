@@ -1,0 +1,41 @@
+{
+    "name": "darkjinnee/sanctum-auth",
+    "description": "This package is for user auth using Sanctum",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dark Jinnee",
+            "email": "darkjinnee@ya.ru",
+            "homepage": "https://github.com/darkjinnee"
+        }
+    ],
+    "homepage": "https://github.com/darkjinnee/sanctum-auth",
+    "keywords": ["Laravel", "SanctumAuth", "Sanctum", "Auth"],
+    "require": {
+        "illuminate/support": "~9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Darkjinnee\\SanctumAuth\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Darkjinnee\\SanctumAuth\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Darkjinnee\\SanctumAuth\\SanctumAuthServiceProvider"
+            ],
+            "aliases": {
+                "SanctumAuth": "Darkjinnee\\SanctumAuth\\Facades\\SanctumAuth"
+            }
+        }
+    }
+}
