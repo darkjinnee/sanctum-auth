@@ -2,6 +2,18 @@
 
 namespace Darkjinnee\SanctumAuth;
 
+use Darkjinnee\SanctumAuth\Console\Commands\AttachAbility;
+use Darkjinnee\SanctumAuth\Console\Commands\AttachAbilityGroup;
+use Darkjinnee\SanctumAuth\Console\Commands\AttachedAbility;
+use Darkjinnee\SanctumAuth\Console\Commands\AttachedAbilityGroup;
+use Darkjinnee\SanctumAuth\Console\Commands\CreateAbility;
+use Darkjinnee\SanctumAuth\Console\Commands\CreateAbilityGroup;
+use Darkjinnee\SanctumAuth\Console\Commands\DeleteAbility;
+use Darkjinnee\SanctumAuth\Console\Commands\DeleteAbilityGroup;
+use Darkjinnee\SanctumAuth\Console\Commands\DetachAbility;
+use Darkjinnee\SanctumAuth\Console\Commands\DetachAbilityGroup;
+use Darkjinnee\SanctumAuth\Console\Commands\ListAbility;
+use Darkjinnee\SanctumAuth\Console\Commands\ListAbilityGroup;
 use Darkjinnee\SanctumAuth\Models\PersonalAccessToken;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\Sanctum;
@@ -65,6 +77,21 @@ class SanctumAuthServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/sanctum-auth.php' => config_path('sanctum-auth.php'),
         ], 'sanctum-auth.config');
+
+        $this->commands([
+            ListAbility::class,
+            ListAbilityGroup::class,
+            CreateAbility::class,
+            CreateAbilityGroup::class,
+            DeleteAbility::class,
+            DeleteAbilityGroup::class,
+            AttachedAbility::class,
+            AttachedAbilityGroup::class,
+            AttachAbility::class,
+            AttachAbilityGroup::class,
+            DetachAbility::class,
+            DetachAbilityGroup::class,
+        ]);
 
         // Publishing the views.
         /*$this->publishes([
