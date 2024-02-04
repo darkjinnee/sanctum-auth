@@ -1,6 +1,7 @@
 {
     "name": "darkjinnee/sanctum-auth",
     "description": "This package is for user auth using Sanctum",
+    "version": "1.0.0",
     "license": "MIT",
     "authors": [
         {
@@ -12,7 +13,7 @@
     "homepage": "https://github.com/darkjinnee/sanctum-auth",
     "keywords": ["Laravel", "SanctumAuth", "Sanctum", "Auth"],
     "require": {
-        "illuminate/support": "~9"
+        "illuminate/support": "^9|^10.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~9.0",

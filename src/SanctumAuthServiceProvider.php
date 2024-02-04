@@ -2,7 +2,9 @@
 
 namespace Darkjinnee\SanctumAuth;
 
+use Darkjinnee\SanctumAuth\Models\PersonalAccessToken;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Sanctum\Sanctum;
 
 class SanctumAuthServiceProvider extends ServiceProvider
 {
@@ -13,9 +15,12 @@ class SanctumAuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->app['db.schema']->morphUsingUuids();
+        Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
+
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'darkjinnee');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'darkjinnee');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         // Publishing is only necessary when using the CLI.
@@ -42,9 +47,9 @@ class SanctumAuthServiceProvider extends ServiceProvider
     /**
      * Get the services provided by the provider.
      *
-     * @return array
+     * @return array<string>
      */
-    public function provides()
+    public function provides(): array
     {
         return ['sanctum-auth'];
     }
