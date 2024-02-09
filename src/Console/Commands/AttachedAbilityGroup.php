@@ -55,7 +55,7 @@ class AttachedAbilityGroup extends Command
         $type = $this->option('type');
 
         if (! $type) {
-            $type = config('sanctum-auth.classes.user');
+            $type = config('sanctum-auth.classes.user_model');
         }
 
         try {

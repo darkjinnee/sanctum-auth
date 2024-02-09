@@ -51,9 +51,9 @@ class BaseController extends Controller
             'password' => 'password',
         ]);
         $this->classes = config('sanctum-auth.classes', [
-            'user' => User::class,
-            'token' => TokenRequest::class,
-            'register' => RegisterRequest::class,
+            'user_model' => User::class,
+            'token_request' => TokenRequest::class,
+            'register_request' => RegisterRequest::class,
         ]);
         $this->refreshToken = config('sanctum-auth.refresh_token');
         $this->expiration = config('sanctum.expiration');

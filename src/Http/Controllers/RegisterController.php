@@ -16,12 +16,12 @@ class RegisterController extends BaseController
      */
     public function __invoke(): JsonResponse
     {
-        $request = app($this->classes['register']);
-        $input = $request->all();
+        $request = app($this->classes['register_request']);
+        $data = $request->input('data');
 
-        $input[$this->fields['password']] = Hash::make($input[$this->fields['password']]);
-        $user = $this->classes['user']::create($input);
-        $data = $this->getTokensPlainText($user, $input['token_name'] ?? null);
+        $data[$this->fields['password']] = Hash::make($data[$this->fields['password']]);
+        $user = $this->classes['user_model']::create($data);
+        $data = $this->getTokensPlainText($user, $data['token_name'] ?? null);
 
         return response()->json([
             'message' => 'User registered successfully.',

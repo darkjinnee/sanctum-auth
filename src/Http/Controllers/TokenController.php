@@ -16,13 +16,13 @@ class TokenController extends BaseController
      */
     public function __invoke(): JsonResponse
     {
-        $request = app($this->classes['token']);
-        $input = $request->all();
+        $request = app($this->classes['token_request']);
+        $data = $request->input('data');
 
-        $user = $this->classes['user']::where($this->fields['username'],
-            $input[$this->fields['username']])->first();
+        $user = $this->classes['user_model']::where($this->fields['username'],
+            $data[$this->fields['username']])->first();
 
-        if (! $user || ! Hash::check($input[$this->fields['password']], $user[$this->fields['password']])) {
+        if (! $user || ! Hash::check($data[$this->fields['password']], $user[$this->fields['password']])) {
             return response()->json([
                 'message' => 'The given data was invalid.',
                 'errors' => [
@@ -30,7 +30,7 @@ class TokenController extends BaseController
                 ],
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
-        $data = $this->getTokensPlainText($user, $input['token_name'] ?? null);
+        $data = $this->getTokensPlainText($user, $data['token_name'] ?? null);
 
         return response()->json([
             'message' => 'Token created successfully.',

@@ -55,7 +55,7 @@ class DetachAbilityGroup extends Command
         $id = $this->argument('id');
         $options = $this->options();
 
-        $modelClass = $options['type'] ?? config('sanctum-auth.classes.user');
+        $modelClass = $options['type'] ?? config('sanctum-auth.classes.user_model');
 
         try {
             $model = $modelClass::findOrFail($id);

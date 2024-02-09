@@ -90,9 +90,9 @@ class Ability extends Model implements AbilityContract
      */
     public function users(): ?MorphToMany
     {
-        $userModel = config('sanctum-auth.classes.user', User::class);
-        if (! empty($userModel)) {
-            return $this->morphedByMany($userModel,
+        $modelClass = config('sanctum-auth.classes.user_model', User::class);
+        if (! empty($modelClass)) {
+            return $this->morphedByMany($modelClass,
                 'model',
                 'models_has_abilities');
         }

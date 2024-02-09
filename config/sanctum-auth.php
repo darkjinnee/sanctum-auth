@@ -33,8 +33,8 @@ return [
 
     /** Classes */
     'classes' => [
-        'register' => RegisterRequest::class,
-        'token' => TokenRequest::class,
-        'user' => User::class,
+        'register_request' => RegisterRequest::class,
+        'token_request' => TokenRequest::class,
+        'user_model' => User::class,
     ],
 ];
