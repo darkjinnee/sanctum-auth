@@ -11,7 +11,7 @@ use Illuminate\Console\Command;
 class CreateAbility extends Command
 {
     /**
-     * @const array<string>
+     * @var array<string>
      */
     protected const ARGS = [
         '{mask : Route name mask}',

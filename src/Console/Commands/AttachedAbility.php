@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class AttachedAbility extends Command
 {
     /**
-     * @const array<string>
+     * @var array<string>
      */
     protected const ARGS = [
         '{id : Model ID (example: 1)}',

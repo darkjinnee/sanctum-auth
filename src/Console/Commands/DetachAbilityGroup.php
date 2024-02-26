@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class DetachAbilityGroup extends Command
 {
     /**
-     * @const array<string>
+     * @var array<string>
      */
     protected const ARGS = [
         '{id : Model ID to manage ability group (example: 1)}',

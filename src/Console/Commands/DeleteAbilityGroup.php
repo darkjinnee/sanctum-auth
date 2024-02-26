@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class DeleteAbilityGroup extends Command
 {
     /**
-     * @const array<string>
+     * @var array<string>
      */
     protected const ARGS = [
         '{id : Group ID}',

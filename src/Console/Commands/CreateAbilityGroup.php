@@ -11,7 +11,7 @@ use Illuminate\Console\Command;
 class CreateAbilityGroup extends Command
 {
     /**
-     * @const array<string>
+     * @var array<string>
      */
     protected const ARGS = [
         '{name : Group name}',
